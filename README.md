@@ -1,6 +1,6 @@
 This questionnaire aims to gauge someone's proneness to aversive or symbolic racism. At the end of the questionnaire.
 
-                                      --------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 When you are done, your score will be tallied and it will provide a general interpretation based on the total score from the questionnaire. Here's an example of how it might interpret a given score:
 
 Total Score: 75
