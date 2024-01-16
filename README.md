@@ -12,10 +12,10 @@ Interpretation: "Possible indication of aversive or symbolic racism." (Score is 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 For each general interpretation, we'll use specific categories from the questionnaire to illustrate how this function might provide insights based on average responses in each category. Let's assume we have the following categories:
 
-Comfort in Multicultural Settings
-Awareness of Racial Dynamics
-Perception of Stereotypes
-Views on Systemic Racism
+Comfort in Multicultural Settings, 
+Awareness of Racial Dynamics, 
+Perception of Stereotypes, 
+Views on Systemic Racism, 
 
 Here's an example of how the analysis might look for each category:
 
