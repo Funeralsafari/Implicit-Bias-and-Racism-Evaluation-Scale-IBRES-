@@ -1,0 +1,112 @@
+# Python Code Implementation with Full 20-Question Questionnaire
+
+# Define the list of 20 questions with categories
+questions = [
+    ("How comfortable do you feel in multicultural environments?", "Comfort in Multicultural Settings"),
+    ("Do you believe your race affects your daily experiences?", "Awareness of Racial Dynamics"),
+    ("How often do you discuss race-related issues with friends or family?", "Engagement in Race Discussions"),
+    ("Do you think racial stereotypes affect your perceptions of individuals?", "Perception of Stereotypes"),
+    ("How often do you engage with media created by or focusing on people of different races?", "Media Engagement"),
+    ("Do you believe that everyone has equal opportunities regardless of their race?", "Belief in Equal Opportunities"),
+    ("How comfortable would you be if your immediate superior at work was of a different race?", "Workplace Dynamics"),
+    ("Do you think your race grants you privileges not afforded to others?", "Perception of Privilege"),
+    ("How often do you notice the race of individuals in social settings?", "Race Awareness in Social Settings"),
+    ("Do you believe that systemic racism is a problem in today's society?", "Views on Systemic Racism"),
+    ("How would you feel about your child attending a school where they are a racial minority?", "Comfort with Diverse Education"),
+    ("Do you feel that certain races are more prone to criminal behavior?", "Beliefs about Race and Crime"),
+    ("How comfortable are you discussing race-related issues with people of different races?", "Comfort in Discussing Race"),
+    ("Do you think racial minorities in your country face discrimination?", "Perception of Discrimination"),
+    ("Would you be comfortable living in a neighborhood predominantly occupied by people of a different race?", "Comfort with Neighborhood Diversity"),
+    ("How often do you interact with people from different racial backgrounds in your personal life?", "Personal Interaction with Diversity"),
+    ("Do you feel that racial issues are overemphasized in the media?", "Views on Racial Issues in Media"),
+    ("How do you react when you hear a racial joke in a social setting?", "Reaction to Racial Jokes"),
+    ("Do you think affirmative action is necessary for addressing racial disparities?", "Views on Affirmative Action"),
+    ("How important is it to you to have a diverse group of friends?", "Importance of Social Diversity")
+]
+
+# Instructions for the user
+instructions = (
+    "For each question, please respond with a number from 1 to 5, where:\n"
+    "1 = Strongly Disagree, 2 = Disagree, 3 = Neutral, 4 = Agree, 5 = Strongly Agree.\n"
+    "Please answer honestly based on your feelings and beliefs."
+)
+
+# Function to collect responses
+def collect_responses(questions, instructions):
+    print(instructions)
+    responses = {}
+    for question, category in questions:
+        print("\n" + question)
+        response = input("Your response (1-5): ")
+        while not response.isdigit() or not 1 <= int(response) <= 5:
+            print("Invalid response. Please enter a number between 1 and 5.")
+            response = input("Your response (1-5): ")
+        if category not in responses:
+            responses[category] = []
+        responses[category].append(int(response))
+    return responses
+
+# Function to analyze responses
+def analyze_responses(responses):
+    score = sum([sum(category_responses) for category_responses in responses.values()])
+    return score, responses
+
+# Function to interpret the score
+def interpret_score(score):
+    if score > 60:
+        interpretation = "Possible indication of aversive or symbolic racism."
+    elif score > 40:
+        interpretation = "Moderate indication of aversive or symbolic racism."
+    else:
+        interpretation = "Low indication of aversive or symbolic racism."
+    return interpretation
+
+# Function to provide detailed analysis
+def detailed_analysis(responses):
+    analysis = []
+    for category, category_responses in responses.items():
+        avg_response = sum(category_responses) / len(category_responses)
+        if avg_response > 3:
+            analysis.append(f"You tend to have a more accepting or positive view in '{category}'.")
+        elif avg_response < 3:
+            analysis.append(f"You may have concerns or a less accepting view in '{category}'.")
+        else:
+            analysis.append(f"Your responses in '{category}' were neutral.")
+    return analysis
+
+# Function to display results
+def display_results(score, interpretation, analysis):
+    print(f"\nTotal Score: {score}")
+    print(f"Interpretation: {interpretation}")
+    print("\nDetailed Analysis:")
+    for detail in analysis:
+        print(detail)
+
+    
+
+# Function to save responses to an Excel file
+def save_responses_to_excel(categorized_responses, filename="responses.xlsx"):
+    # Convert the categorized responses into a format suitable for DataFrame
+    data = []
+    for category, responses in categorized_responses.items():
+        for i, response in enumerate(responses, 1):
+            data.append({'Category': category, 'Question Number': i, 'Response': response})
+    
+    # Create DataFrame and save to Excel
+    df = pd.DataFrame(data)
+    df.to_excel(filename, index=False)
+    print(f"Responses saved to {filename}")
+
+# Main function to run the program
+def main():
+    responses = collect_responses(questions, instructions)
+    score, categorized_responses = analyze_responses(responses)
+    interpretation = interpret_score(score)
+    analysis = detailed_analysis(categorized_responses)
+    display_results(score, interpretation, analysis)
+
+    # Save responses to an Excel file
+    save_responses_to_excel(categorized_responses)
+
+# Call the main function to run the program
+main()
