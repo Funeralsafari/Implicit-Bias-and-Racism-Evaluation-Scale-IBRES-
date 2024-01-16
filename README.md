@@ -9,6 +9,7 @@ Total Score: 45
 Interpretation: "Moderate indication of aversive or symbolic racism." (Score is between 40 and 60)
 Total Score: 30
 Interpretation: "Low indication of aversive or symbolic racism." (Score is below 40)
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 For each general interpretation, we'll use specific categories from the questionnaire to illustrate how this function might provide insights based on average responses in each category. Let's assume we have the following categories:
 
