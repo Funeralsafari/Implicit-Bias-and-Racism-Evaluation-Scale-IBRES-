@@ -26,6 +26,7 @@ questions = [
 
 # Instructions for the user
 instructions = (
+    "We recommend this test be taken privately to ensure personal reflection and honesty.\n"
     "For each question, please respond with a number from 1 to 5, where:\n"
     "1 = Strongly Disagree, 2 = Disagree, 3 = Neutral, 4 = Agree, 5 = Strongly Agree.\n"
     "Please answer honestly based on your feelings and beliefs."
